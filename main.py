@@ -50,6 +50,12 @@ def get_values_poly(args: tuple) -> str:
     return html
 
 
+def output_file(html):
+    f = open("output.html", "a")
+    f.write(html)
+    f.close()
+
+
 #----------------------------------------------------------------POST-----------------------------------------------------------
 
 def get_response(url, kwords):
@@ -65,3 +71,5 @@ data_example_polyphenT = ("P41567", '', '59', 'L', 'P', '')
 
 print("\n Mutation Taster  ---------------------------------------------------------------------------------- \n" , get_values_mutation(data_example_mutationT))
 print("\n polyphen  ---------------------------------------------------------------------------------- \n" , get_values_poly(data_example_polyphenT))
+
+output_file(get_values_mutation(data_example_mutationT))
