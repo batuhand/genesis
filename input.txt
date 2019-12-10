@@ -1,5 +1,3 @@
-sasasasasa
-
 to: mutationtaster
 name: Hakan Keleş
 transcript: ENST00000379370

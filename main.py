@@ -1,4 +1,7 @@
 #-----------------------------------------------Mutation Taster----------------------------------------------------------
+import os
+import webbrowser
+
 
 def send_all_data_mutation(args: tuple) -> None:
 
@@ -50,11 +53,21 @@ def get_values_poly(args: tuple) -> str:
     return html
 
 
-def output_file(html):
-    f = open("output.html", "a")
+def output_file(name,html):
+    from datetime import date
+    now = date.today()
+    date = now.strftime("%b-%d-%Y")
+    print(now)
+    fileName = name + " " + date + " Results.html"
+    print(fileName)
+    f = open(fileName, "a")
     f.write(html)
     f.close()
+    show_result(fileName)
 
+def show_result(fileName):
+    file = 'file:///' + os.getcwd() + '/' + fileName
+    webbrowser.open_new_tab(file)
 
 #----------------------------------------------------------------POST-----------------------------------------------------------
 
@@ -66,10 +79,11 @@ def get_response(url, kwords):
 
 #------------------main-----------------------------------------------------------------------------------------------------------
 
+name_example = "Batuhan Demircan"
 data_example_mutationT = ("", "ENST00000379370", "gDNA", "", "" , "", "28669", "28672", "")
 data_example_polyphenT = ("P41567", '', '59', 'L', 'P', '')
 
 print("\n Mutation Taster  ---------------------------------------------------------------------------------- \n" , get_values_mutation(data_example_mutationT))
 print("\n polyphen  ---------------------------------------------------------------------------------- \n" , get_values_poly(data_example_polyphenT))
 
-output_file(get_values_mutation(data_example_mutationT))
+output_file(name_example,get_values_mutation(data_example_mutationT))

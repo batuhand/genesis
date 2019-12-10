@@ -1,15 +1,17 @@
 class Input:
-    def __init__(self,site,name,transcript,snippetRefers,alteration,alterName,protein,position,AA1,AA2):
-        self.site = site
-        self.name = name
-        self.transcript = transcript
-        self.snippetRefers = snippetRefers
-        self.alteration = alteration
-        self.alterName = alterName
-        self.protein = protein
-        self.position = position
-        self.AA1 = AA1
-        self.AA2 = AA2
+    transcript = ""
+    snippetrefers = ""
+    firstwildtype = ""
+    lastwildtype = ""
+    protein = ""
+    position = ""
+    aa1 = ""
+    aa2 = ""
+    alteration = ""
+    nameofalteration = ""
+    gene = ""
+    insertedbase = ""
+    newbase = ""
 
     def create_post(self):
         if self.site == "mutationtaster" :
@@ -27,3 +29,16 @@ class Input:
                       }
 
         return values
+
+
+""" 
+def __init__(self,transcript,snippetRefers,alteration,alterName,protein,position,AA1,AA2):
+     self.transcript = transcript
+     self.snippetRefers = snippetRefers
+     self.alteration = alteration
+     self.alterName = alterName
+     self.protein = protein
+     self.position = position
+     self.AA1 = AA1
+     self.AA2 = AA2
+"""
